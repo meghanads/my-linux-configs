@@ -1,0 +1,5 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =3
+let g:netrw_dirhist_1='/home/meghanad/MTP/hgMTP/mXorPlus/xorPlus_target/DSDT/88E6065'
+let g:netrw_dirhist_2='/home/meghanad/MTP/hgMTP/mXorPlus/xorPlus_target/DSDT/sample/802.1Q'
+let g:netrw_dirhist_3='/home/meghanad/MTP/hgMTP/SNMP/old_maxim_wrapper/implement/version_6'
