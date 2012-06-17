@@ -11,6 +11,6 @@ PS1="\[\033[1;34m\][\$(date +%H%M)] \[\033[1;35m\]\u:\[\033[1;34m\]\W $\[\033[0m
 
 # IITB proxy settings :
 #======================
-export http_proxy=http://meghanads:iitb\$mas@netmon.iitb.ac.in:80
+export http_proxy=http://username:pass\@wd@netmon.iitb.ac.in:80
 
 #============================================================================================
