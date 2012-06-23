@@ -1,0 +1,20 @@
+#!/bin/bash
+settings_filename=/home/thunder/bin/wallpaperd.conf
+wallpaper_directory=$(cat $settings_filename | grep ^[^#] | grep wallpaper_directory | cut -d"=" -f2)
+current_wallpaper=$(cat $settings_filename | grep ^[^#] | grep current_wallpaper | cut -d"=" -f2)
+ls $wallpaper_directory >> temp.txt
+i=$(cat -n temp.txt | grep $current_wallpaper | cut -f1)
+i=`expr $i + 1`
+max_value=$(wc -l temp.txt | cut -d" " -f1)
+if [ $i -gt $max_value  ]; then
+i=1
+fi
+new_wallpaper=$(head -n $i temp.txt | tail -n 1)
+new_wallpaper_with_path=$wallpaper_directory"/"$new_wallpaper
+rm temp.txt
+cat $settings_filename | grep -v $current_wallpaper >> temp.txt
+echo "current_wallpaper=$new_wallpaper" >> temp.txt
+mv temp.txt $settings_filename
+gconftool-2 -t string -s /desktop/gnome/background/picture_filename $new_wallpaper_with_path
+gconftool-2 -t string -s /desktop/gnome/background/picture_options "stretched"
+exit
