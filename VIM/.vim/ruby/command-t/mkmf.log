@@ -1,0 +1,20 @@
+have_header: checking for ruby.h... -------------------- yes
+
+"gcc -o conftest -I/usr/include/i386-linux -I/usr/include/ruby/backward -I/usr/include -I.  -D_FILE_OFFSET_BITS=64  -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -march=i686 -mtune=atom -fasynchronous-unwind-tables -fPIC conftest.c  -L. -L/usr/lib -L. -Wl,-z,relro -rdynamic -Wl,-export-dynamic  -m32   -lruby  -lpthread -lrt -ldl -lcrypt -lm   -lc"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: int main() {return 0;}
+/* end */
+
+"gcc -E -I/usr/include/i386-linux -I/usr/include/ruby/backward -I/usr/include -I.  -D_FILE_OFFSET_BITS=64  -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -march=i686 -mtune=atom -fasynchronous-unwind-tables -fPIC  conftest.c -o conftest.i"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <ruby.h>
+/* end */
+
+--------------------
+
