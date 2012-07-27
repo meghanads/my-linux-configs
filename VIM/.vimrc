@@ -11,52 +11,6 @@ endif
 
 let g:did_myvimrc = 1
 
-" Overview:
-" - I use vim 7 in xterminals (gnome-terminal, console, gvim, etc) on light
-"   backgrounds.
-" - In non-xterminals (like the typical linux terminal) I use dark
-"   backgrounds.
-" - Generally, I don't change default vim keyboard shortcuts, such that I can
-"   use 'pristine' vim installations as well.
-" - I enable all the 'cool' features: code folding, syntax highlighting,
-"   automatic complete, filetype plugins, indentation, line numbering, custom
-"   ruler, custom status line.
-" - Even if I use gvim, I actually don't use the GUI features. I disable
-"   pretty much everything, except the menus.
-" - I use vim modelines.
-" - I use the longer names for commands and settings (e.g. 'tabstop' instead
-"   of 'ts'), for readability.
-" - When saving files the RD_FileWritePre() function checks for $Date: ... $
-"   to update the date.
-" - I enabled .exrc/.vimrc files per-directory, and I disabled any unsafe
-"   commands in such files.
-" - New keyboard shortcuts:
-"   _' _{ _( _[ _< _t _W _T _c _C _"
-"   These are selection wrappers. Select something and type _' to have single
-"   quotes around the selection. In normal mode type _W to unwrap the string.
-"   For example move over the ' single quote character and type _W: this will
-"   remove the ' and the other matching quote.
-"   _t and _T are for XML/HTML tags. _t to wrap the selection around a given
-"   tag name. _T to strip the tag under the cursor.
-"   _c and _C are for comments. It will detect the file type and use propers
-"   comments.
-" - New command: Fullscreen. Nice for editing text-only documents.
-" - I use the matchit and taglist plugins. I do not use XML edit plugins.
-" - I have my own XML edit functions, which I like better than those available
-"   online in other scripts.
-" - New abbreviations:
-"   isodate
-"   Adds the date in ISO format: 2008-11-04 22:43:09 +0200.
-"
-"   $Date$
-"   Adds the date in ISO format, with a twist: $Date: 2010-12-02 22:56:42 +0530 $ 
-"
-"   rdcopy
-"   My usual 'copyright' notice.
-"
-" Problems:
-" - _c and _C (comment wrapping) is not very good at the moment.
-" - XML/HTML editing still needs improvements, but it's usable.
 
 
 " Script settings
@@ -122,17 +76,19 @@ set whichwrap=b,s,<,>
 
 " Case insensitive search
 " ======================
-set ignorecase
+set ignorecase	  " ignore case
+set smartcase     " ignore case if search pattern is all lowercase,
+                  " case-sensitive otherwise
 
 " Auto-complete
 " =============
 
 " Scanning included files is really slow for Perl files
 " Maybe I should change this only for Perl files
-set complete-=i 
+" set complete-=i 
 
 " Turn on wild menu which shows auto-complete options in the command mode
-set wildmenu
+" set wildmenu
 
 
 " File-related
@@ -152,10 +108,14 @@ filetype plugin indent on
 " Backups
 " ========
 
+" Make backups...
 "set backup
 "set backupcopy=auto
 "set backupskip=/tmp/*,$TMPDIR/*,$TMP/*,$TEMP/*,*test*,*temp*,*tmp*,*tst*,*~,*bak
 
+"NO backups please ....
+set nobackup
+set noswapfile
 " Start the Visual/Selection mode with using Shift+Arrows/etc
 set keymodel=startsel
 
@@ -278,8 +238,8 @@ endif
 " Show matching brackets.
 set showmatch 
 
-" Do not highlight the string we searched.
-set nohlsearch 
+" highlight the string we searched.
+set hlsearch 
 
 " Highlight the searched string, while typing.
 set incsearch
@@ -338,7 +298,7 @@ set secure
 
 "Enable Taglist plugin : http://www.thegeekstuff.com/2009/04/ctags-taglist-vi-vim-editor-as-sourece-code-browser/
 
-filetype plugin on
+"filetype plugin on
 
 
 "Information about syatem library:
@@ -348,7 +308,7 @@ set tags+=/usr/include/tags
 
 "This builds tags libs for the current working directory (it's super fast):
 
-map <F8> :!/usr/bin/ctags --extra=+f   --langdef=file    --langmap='file:..txt.'    -R .<CR>
+" map <F8> :!/usr/bin/ctags --extra=+f   --langdef=file    --langmap='file:..txt.'    -R .<CR>
 
 
 " it is useful to have vim search recursively upwards for the tags file:
@@ -360,19 +320,48 @@ set tags=tags;/
 autocmd BufEnter * lcd %:p:h
 
 
+" shows list of variable, functions in side window - toggle
+nnoremap <silent> <F8> :TlistToggle<CR>
 
-nnoremap <silent> <C-w> :TlistToggle<CR>
 let Tlist_Exit_OnlyWindow = 1     " exit if taglist is last window open
 let Tlist_Show_One_File = 1       " Only show tags for current buffer
 let Tlist_Enable_Fold_Column = 0  " no fold column (only showing one file)
 let tlist_sql_settings = 'sql;P:package;t:table'
 let tlist_ant_settings = 'ant;p:Project;r:Property;t:Target'
+let Tlist_Use_SingleClick = 1	  "use single click to jump to the tag
+let Tlist_GainFocus_On_ToggleOpen = 1 "automatically switch to taglist window
+let Tlist_Highlight_Tag_On_BufEnter = 1 "highlight current tag in taglist window
+let Tlist_Display_Prototype = 1 "display full prototype instead of just function name
 
 
+" colour schemes
+" ==============
 color morning
 
 "colorscheme solarized
 
 "colorscheme autumn2
 
-map <C-c> "+y<CR>
+"map <C-c> "+y<CR>
+
+
+
+" http://nvie.com/posts/how-i-boosted-my-vim/
+" ===========================================
+set history=1000         " remember more commands and search history
+set undolevels=1000      " use many muchos levels of undo
+set wildignore=*.swp,*.bak,*.pyc,*.class
+set title                " change the terminal's title
+set visualbell           " don't beep
+set noerrorbells         " don't beep
+
+set pastetoggle=<F2>
+
+nnoremap ; :
+
+" clear searched highlights on pressing "./"
+nmap <silent> ./ :nohlsearch<CR>
+
+" CommandT mapping
+" ================
+nnoremap <silent> ,t :CommandT<CR>
