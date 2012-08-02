@@ -1,0 +1,23 @@
+
+#
+# /etc/fstab
+# Created by anaconda on Sat Jul 21 22:06:22 2012
+#
+# Accessible filesystems, by reference, are maintained under '/dev/disk'
+# See man pages fstab(5), findfs(8), mount(8) and/or blkid(8) for more info
+#
+UUID=6f685324-007a-43a3-aa9f-45ac094c0138 /                       ext4    defaults        1 1
+UUID=87f8b321-1b54-40c2-bd24-a17d63c6f20d /boot                   ext4    defaults        1 2
+UUID=be484479-0346-4b5c-a73f-a2ce25ccc13a /home                   ext4    defaults        1 2
+UUID=222fda32-3d72-470d-ae94-6fbe1326cfbf swap                    swap    defaults        0 0
+
+# windows sharing
+#//puapps1/home/Meghanad.Shingate        /media/puapps_home    cifs credentials=/home/meghanads/configs/samba/smbcredentials    0    0
+
+# puapps_home
+//puapps1/home/Meghanad.Shingate        /media/puapps_home    cifs rw,uid=1000,gid=1000,credentials=/home/meghanads/configs/samba/smbcredentials,dir_mode=0755,file_mode=0755    0    0
+
+
+# pudesk175 c_drive
+//PUDESK175/C_drive        /media/c_drive    cifs rw,uid=1000,gid=1000,credentials=/home/meghanads/configs/samba/smbcredentials,dir_mode=0755,file_mode=0755    0    0
+
