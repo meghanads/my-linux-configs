@@ -312,7 +312,7 @@ set tags+=/usr/include/tags
 
 
 " it is useful to have vim search recursively upwards for the tags file:
-
+" =======================================================================
 set tags=tags;/
 
 "so that you only need tags file only in parent directory:
@@ -321,6 +321,7 @@ autocmd BufEnter * lcd %:p:h
 
 
 " shows list of variable, functions in side window - toggle
+" =========================================================
 nnoremap <silent> <F8> :TlistToggle<CR>
 
 let Tlist_Exit_OnlyWindow = 1     " exit if taglist is last window open
@@ -355,9 +356,14 @@ set title                " change the terminal's title
 set visualbell           " don't beep
 set noerrorbells         " don't beep
 
+" Toggling For formatted pest
+" ===========================
 set pastetoggle=<F2>
 
+" Map : to ;
+" ===========
 nnoremap ; :
+
 
 " clear searched highlights on pressing "./"
 nmap <silent> ./ :nohlsearch<CR>
