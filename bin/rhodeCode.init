@@ -1,0 +1,37 @@
+#!/bin/bash
+#
+# Startup script for rhodeCode server.
+#
+# Change following ines
+APP_BIN=/usr/bin/paster
+SRC=/home/meghanads/rhodeCode
+PID_FILE=/home/meghanads/bin/pid/rhodecode.pid
+CONFIG_PATH=/home/meghanads/configs/rhodeCode/production.ini
+
+
+state=$1
+case "$state" in
+'start')
+    echo "RhodeCode Server service starting."
+   (${APP_BIN} serve ${CONFIG_PATH} --pid-file ${PID_FILE} &)
+  ;;
+
+'stop')
+  if [ -f "${PID_FILE}" ]; then
+    PID=`cat "${PID_FILE}"`
+    if [ "${PID}" -gt 1 ]; then
+      kill -TERM ${PID}
+      echo "Stopping the rhodeCode service PID=${PID}."
+    else
+      echo Bad PID for rhodeCode -- \"${PID}\"
+    fi
+  else
+    echo No PID file recorded for rhodeCode
+  fi
+  ;;
+
+*)
+  echo "$0 {start|stop}"
+  exit 1
+  ;;
+esac
