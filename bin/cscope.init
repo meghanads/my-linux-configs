@@ -1,0 +1,21 @@
+#!/bin/bash
+
+# Creating cscope database for large project with recursive deirectory structure
+# First go to root dir of the source code
+# Run this script
+
+
+if test $# -ne 1; then
+	echo "usage - $0 <PROJ_ROOT>"
+	exit 1
+fi
+
+echo "PROJ_ROOT - $1"
+
+cd /
+find $1 -name "*.[ch]" > $1/cscope.files
+cd $1
+cscope -b -q -k
+
+echo "Done!"
+

@@ -1,6 +1,5 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =4
-let g:netrw_dirhist_1='/home/meghanad/MTP/hgMTP/mXorPlus/xorPlus_target/DSDT/88E6065'
-let g:netrw_dirhist_2='/home/meghanad/MTP/hgMTP/mXorPlus/xorPlus_target/DSDT/sample/802.1Q'
-let g:netrw_dirhist_3='/home/meghanad/MTP/hgMTP/SNMP/old_maxim_wrapper/implement/version_6'
-let g:netrw_dirhist_4='/etc/samba'
+let g:netrw_dirhist_cnt =3
+let g:netrw_dirhist_1='/media/c_drive/Users/meghanad.shingate/Perforce/puperforce.pu.imgtec.org_1667/meghanad.shingate_PUDESK175/powervr/swgraphics/wddmddk/MAIN/eurasiaPC/directx'
+let g:netrw_dirhist_2='/media/c_drive/Users/meghanad.shingate/Perforce/puperforce.pu.imgtec.org_1667/meghanad.shingate_PUDESK175/powervr/swgraphics/wddmddk/MAIN/eurasiaPC/directx/vidproc'
+let g:netrw_dirhist_3='/media/c_drive/Users/meghanad.shingate/Perforce/puperforce.pu.imgtec.org_1667/meghanad.shingate_PUDESK175/powervr/swgraphics/wddmddk/MAIN/eurasiaPC/directx/vidproc/ddi'
