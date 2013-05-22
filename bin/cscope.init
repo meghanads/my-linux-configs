@@ -13,7 +13,7 @@ fi
 echo "PROJ_ROOT - $1"
 
 cd /
-find $1 -name "*.[ch]" > $1/cscope.files
+find $1 -name "*.[ch]" -o -name "*.asm" > $1/cscope.files
 cd $1
 cscope -b -q -k
 
