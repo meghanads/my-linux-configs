@@ -8,5 +8,10 @@ tmpfs           /dev/shm     tmpfs   defaults          0       0
 #/dev/hdb1       /mnt/data    ext3    defaults          0       2
 /dev/cdrom      /media/cdrom iso9660 user,ro,noauto       0       0
 /dev/sda9	swap	swap	default	0 0
+
+# Mounting Local Drives:
 /dev/sda8	/media/fedora	ntfs-3g	auto,users,uid=1000,gid=100,dmask=027,fmask=137,utf8	0 	0
 /dev/sda5	/media/MAS	ntfs-3g	auto,users,uid=1000,gid=100,dmask=027,fmask=137,utf8	0 	0
+
+# Mounting Shared Drives:
+//puapps1/Data        /media/puapps_data    cifs rw,nounix,noserverino,uid=1000,gid=1000,credentials=/home/meghanads/configs/samba/smbcredentials,dir_mode=0755,file_mode=0755    0    0
