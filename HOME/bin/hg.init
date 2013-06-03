@@ -1,0 +1,40 @@
+#!/bin/bash
+#
+# Startup script for mercurial server.
+#
+# Change following ines
+APP_BIN=/usr/bin/hg
+SRC=/home/meghanads/workspace/sgx_exp/sgx_blit_test
+SRCNAME="Edge Detection Repos - Meghanad"
+# Path to PID file of running mercurial process.
+# PID_FILE=/var/adm/hg.pid
+PID_FILE=/home/meghanads/bin/pid/hg_serve.pid
+
+
+state=$1
+
+case "$state" in
+'start')
+    echo "Mecurial Server service starting."
+   (cd ${SRC} ;${APP_BIN} serve --name "${SRCNAME}"  -d  -p 8001 --pid-file ${PID_FILE})
+  ;;
+
+'stop')
+  if [ -f "${PID_FILE}" ]; then
+    PID=`cat "${PID_FILE}"`
+    if [ "${PID}" -gt 1 ]; then
+      kill -TERM ${PID}
+      echo "Stopping the Mercurial service PID=${PID}."
+    else
+      echo Bad PID for Mercurial -- \"${PID}\"
+    fi
+  else
+    echo No PID file recorded for mercurial
+  fi
+  ;;
+
+*)
+  echo "$0 {start|stop}"
+  exit 1
+  ;;
+esac

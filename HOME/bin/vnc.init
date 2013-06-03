@@ -1,0 +1,24 @@
+#!/bin/bash
+#
+# VNC server.
+#
+# Change following ines
+PORT=1
+
+state=$1
+case "$state" in
+'start')
+	echo "VNC Server service starting...(PORT=$PORT)"
+   (vncserver :$PORT -geometry 800x600 -depth 24 &)
+  ;;
+
+'stop')
+	echo "VNC Server service stopping...(PORT=$PORT)"
+   (vncserver -kill :$PORT -geometry 800x600 -depth 24 &)
+  ;;
+
+*)
+  echo "$0 {start|stop}"
+  exit 1
+  ;;
+esac
