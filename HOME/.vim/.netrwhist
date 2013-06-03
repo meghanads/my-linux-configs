@@ -1,7 +1,9 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =5
+let g:netrw_dirhist_cnt =7
 let g:netrw_dirhist_1='/media/c_drive/Users/meghanad.shingate/Perforce/puperforce.pu.imgtec.org_1667/meghanad.shingate_PUDESK175/powervr/swgraphics/wddmddk/MAIN/eurasiaPC/directx'
 let g:netrw_dirhist_2='/media/c_drive/Users/meghanad.shingate/Perforce/puperforce.pu.imgtec.org_1667/meghanad.shingate_PUDESK175/powervr/swgraphics/wddmddk/MAIN/eurasiaPC/directx/vidproc'
 let g:netrw_dirhist_3='/media/c_drive/Users/meghanad.shingate/Perforce/puperforce.pu.imgtec.org_1667/meghanad.shingate_PUDESK175/powervr/swgraphics/wddmddk/MAIN/eurasiaPC/directx/vidproc/ddi'
 let g:netrw_dirhist_4='/home/meghanads/configs'
 let g:netrw_dirhist_5='/home/meghanads/perforce/powervr/swgraphics/sgxddk/MAIN/services4/srvinit/devices/sgx'
+let g:netrw_dirhist_6='/home/meghanads/googleCode/my-linux-configs/samba'
+let g:netrw_dirhist_7='/home/meghanads/googleCode/my-linux-configs/repos-fedora17'
