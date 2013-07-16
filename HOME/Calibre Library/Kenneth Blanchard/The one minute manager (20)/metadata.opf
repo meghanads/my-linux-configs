@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='utf-8'?>
+<package xmlns="http://www.idpf.org/2007/opf" unique-identifier="uuid_id">
+    <metadata xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:opf="http://www.idpf.org/2007/opf">
+        <dc:identifier opf:scheme="calibre" id="calibre_id">20</dc:identifier>
+        <dc:identifier opf:scheme="uuid" id="uuid_id">ca467710-d065-435f-a4ec-2d1562a23a29</dc:identifier>
+        <dc:title>The one minute manager</dc:title>
+        <dc:creator opf:file-as="Blanchard, Kenneth" opf:role="aut">Kenneth Blanchard</dc:creator>
+        <dc:contributor opf:file-as="calibre" opf:role="bkp">calibre (0.8.38) [http://calibre-ebook.com]</dc:contributor>
+        <dc:date>2013-07-04T19:18:52+00:00</dc:date>
+        <dc:description>&lt;p class="description"&gt;one minute manager, The power of now&lt;/p&gt;</dc:description>
+        <dc:language>eng</dc:language>
+        <dc:subject>one minute manager; The power of now</dc:subject>
+        <meta content="{&quot;Kenneth Blanchard&quot;: &quot;&quot;}" name="calibre:author_link_map"/>
+        <meta content="0" name="calibre:rating"/>
+        <meta content="2013-07-04T19:18:52+00:00" name="calibre:timestamp"/>
+        <meta content="The one minute manager" name="calibre:title_sort"/>
+    </metadata>
+    <guide>
+        <reference href="cover.jpg" type="cover" title="Cover"/>
+    </guide>
+</package>

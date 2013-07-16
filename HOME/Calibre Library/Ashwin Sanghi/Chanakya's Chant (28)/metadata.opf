@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='utf-8'?>
+<package xmlns="http://www.idpf.org/2007/opf" unique-identifier="uuid_id">
+    <metadata xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:opf="http://www.idpf.org/2007/opf">
+        <dc:identifier opf:scheme="calibre" id="calibre_id">28</dc:identifier>
+        <dc:identifier opf:scheme="uuid" id="uuid_id">43d93e51-69fd-42e4-9d7e-6e15c3809344</dc:identifier>
+        <dc:title>Chanakya's Chant</dc:title>
+        <dc:creator opf:file-as="Sanghi, Ashwin" opf:role="aut">Ashwin Sanghi</dc:creator>
+        <dc:contributor opf:file-as="calibre" opf:role="bkp">calibre (0.8.38) [http://calibre-ebook.com]</dc:contributor>
+        <dc:date>2013-05-10T23:00:00+00:00</dc:date>
+        <dc:publisher>ePub Bud (www.epubbud.com)</dc:publisher>
+        <dc:identifier opf:scheme="EPUBBUD">http|//www.epubbud.com/temploc/epubs/PDRGMRNA/final/Chanakya_s_Chant.epub</dc:identifier>
+        <dc:language>eng</dc:language>
+        <meta content="{&quot;Ashwin Sanghi&quot;: &quot;&quot;}" name="calibre:author_link_map"/>
+        <meta content="2013-07-05T18:01:02+00:00" name="calibre:timestamp"/>
+        <meta content="Chanakya's Chant" name="calibre:title_sort"/>
+    </metadata>
+    <guide>
+        <reference href="cover.jpg" type="cover" title="Cover"/>
+    </guide>
+</package>
