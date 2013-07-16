@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='utf-8'?>
+<package xmlns="http://www.idpf.org/2007/opf" unique-identifier="uuid_id">
+    <metadata xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:opf="http://www.idpf.org/2007/opf">
+        <dc:identifier opf:scheme="calibre" id="calibre_id">25</dc:identifier>
+        <dc:identifier opf:scheme="uuid" id="uuid_id">acca8ae7-1549-4c8a-89e7-27d022934d97</dc:identifier>
+        <dc:title>Swami and Friends</dc:title>
+        <dc:creator opf:file-as="R. K. Narayan" opf:role="aut">R. K. Narayan</dc:creator>
+        <dc:contributor opf:file-as="calibre" opf:role="bkp">calibre (0.8.38) [http://calibre-ebook.com]</dc:contributor>
+        <dc:date>2012-03-25T23:00:00+00:00</dc:date>
+        <dc:publisher>ePub</dc:publisher>
+        <dc:language>eng</dc:language>
+        <meta content="{&quot;R. K. Narayan&quot;: &quot;&quot;}" name="calibre:author_link_map"/>
+        <meta content="0" name="calibre:rating"/>
+        <meta content="2013-07-04T21:36:19+00:00" name="calibre:timestamp"/>
+        <meta content="Swami and Friends" name="calibre:title_sort"/>
+    </metadata>
+    <guide>
+        <reference href="cover.jpg" type="cover" title="Cover"/>
+    </guide>
+</package>
