@@ -1,8 +1,5 @@
-" $Author: Mihai Şucan $
-" $Edited : Meghanad Shingate 
-" $Blog: http://linux-myubuntu.blogspot.com/
-
-"set verbose=9
+" $Author : Meghanad Shingate 
+" $Blog: http://thinking-electron.blogspot.in/
 
 " Only run the script once
 if exists("g:did_myvimrc")
@@ -88,7 +85,7 @@ set smartcase     " ignore case if search pattern is all lowercase,
 " set complete-=i 
 
 " Turn on wild menu which shows auto-complete options in the command mode
-" set wildmenu
+set wildmenu
 
 
 " File-related
@@ -105,10 +102,8 @@ set fileformats=unix,dos,mac
 filetype plugin indent on 
 
 
-" Backups
-" ========
-
-" Make backups...
+" Backups - Making backup
+" ========================
 "set backup
 "set backupcopy=auto
 "set backupskip=/tmp/*,$TMPDIR/*,$TMP/*,$TEMP/*,*test*,*temp*,*tmp*,*tst*,*~,*bak
@@ -165,7 +160,9 @@ set number
 " Threshold for reporting number of lines changed.
 set report=0
 
-" Enable the ruler with the format:
+
+" Enable the ruler with the format: (top)
+" =======================================
 " {buffer number}{modified/readonly flag}: {file type} [current line, current column] {position percentage in file}
 set ruler
 set rulerformat=%25(%n%m%r:\ %Y\ [%l,%v]\ %p%%%)
@@ -179,7 +176,8 @@ set shortmess=as
 " Show (partial) command in status line.
 set showcmd
 
-" Status line format:
+" Status line format: (bottom)
+" ============================
 " {buffer number}: {file name, relative path to the current working directory}{modified flag}{readonly flag}
 " {help flag}{preview flag} [file type, encoding, format] [current line-total lines, current column][position percentage in file]
 set statusline=%n:\ %f%m%r%h%w\ [%Y,%{&fileencoding},%{&fileformat}]\ [%l-%L,%v][%p%%]
@@ -254,6 +252,7 @@ set incsearch
 let mapleader='_'
 
 " Quick way to change the directory to the file I am currently editing
+" ====================================================================
 noremap <silent> <Leader>. :exe 'cd ' . substitute(expand("%:p:h"), ' ', "\\\\ ", 'g')<CR>
 
 
@@ -276,16 +275,6 @@ let Tlist_Inc_Winwidth = 0
 
 
 
-
-
-
-
-
-
-
-" The end
-" =======
-
 " Enable .exrc files (.vimrc files per-directory)
 set exrc
 
@@ -293,20 +282,14 @@ set exrc
 set secure
 
 
-"Added by Meghanad:
-"=================
-
-"Enable Taglist plugin : http://www.thegeekstuff.com/2009/04/ctags-taglist-vi-vim-editor-as-sourece-code-browser/
-
-"filetype plugin on
-
-
 "Information about syatem library:
+"=================================
 
 set tags+=/usr/local/include/tags
 set tags+=/usr/include/tags
 
 "This builds tags libs for the current working directory (it's super fast):
+"===========================================================================
 
 " map <F8> :!/usr/bin/ctags --extra=+f   --langdef=file    --langmap='file:..txt.'    -R .<CR>
 
@@ -335,16 +318,13 @@ let Tlist_Highlight_Tag_On_BufEnter = 1 "highlight current tag in taglist window
 let Tlist_Display_Prototype = 1 "display full prototype instead of just function name
 
 
-" colour schemes
-" ==============
+" colour schemes: themes
+" ===========================
 color morning
 
 "colorscheme solarized
 
 "colorscheme autumn2
-
-"map <C-c> "+y<CR>
-
 
 
 " http://nvie.com/posts/how-i-boosted-my-vim/
@@ -365,12 +345,23 @@ set pastetoggle=<F2>
 nnoremap ; :
 
 
-" clear searched highlights on pressing "./"
+"clear searched highlights on pressing "./"
+"=============================================
 nmap <silent> ./ :nohlsearch<CR>
 
 " CommandT mapping
 " ================
 nnoremap <silent> ,t :CommandT<CR>
+
+
+" Ack grep
+" run Ack against word under cursor
+"==================================
+nnoremap <silent> ,g :Ack -i <c-r><c-w><CR>
+
+" Run ack in ACK_DIR
+let ACK_DIR = expand("%:p:h")
+nnoremap <silent> ,d :Ack <c-r><c-w> ACK_DIR <CR>
 
 
 " show line and column markers
