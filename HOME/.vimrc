@@ -1,6 +1,36 @@
 " $Author : Meghanad Shingate 
 " $Blog: http://thinking-electron.blogspot.in/
 
+" Command Reference
+" ------------------------------------------------------------
+
+" *                     - searches for word under cursor
+" gd                    - finds definition of variable/function under cursor
+" ga                    - prints the ascii value of character under cursor
+" gf                    - opens file under the cursor (in split view)
+" gi                    - goes to insert mode in the same spot as you last inserted
+" ~                     - changes case of character
+" :r !<cmd>             - reads the output of the shell <cmd> into the file
+" :% s/hello/A/gc       - typical search and replace command
+
+" :% !tidy              - runs the code through the 'tidy' program
+
+" :runtime! syntax/2html.vim
+" :10,40TOhtml
+ 
+" command reference ->  " za : fold toggle  toggles between a fold being opened and closed (zA does it recursively)
+"                       " zc : fold close   close 1 fold under the cursor (zC does it recursively)
+                        " zo : fold open    open 1 fold under the cursor (zO does it recursively)
+                        " zm : fold more    increases foldlevel by 1 (zM opens all folds)
+                        " zr : fold reduce  decreses foldlevel by 1 (zR closes all folds)
+
+" :retab                - when expandtab is set, replace all tabs in the file with the # of spaces defined in 'shiftwidth'
+" :retab!               - when expandtab is not set, replace the number of spaces in 'shiftwidth' with a tab
+
+
+
+"----------------------------------------------------------------
+
 " Only run the script once
 if exists("g:did_myvimrc")
   finish
@@ -357,12 +387,48 @@ nnoremap <silent> ,t :CommandT<CR>
 " Ack grep
 " run Ack against word under cursor
 "==================================
-nnoremap <silent> ,g :Ack -i <c-r><c-w><CR>
+nnoremap <silent> ,g :Ack <c-r><c-w><CR>
 
-" Run ack in ACK_DIR
-let ACK_DIR = expand("%:p:h")
-nnoremap <silent> ,d :Ack <c-r><c-w> ACK_DIR <CR>
+" Run ack in ACK_ROOT if set - set ACK_ROOT to desired root
+if $ACK_ROOT != ""
+	nnoremap <silent> ,d :Ack <c-r><c-w> $ACK_ROOT <CR>
+else
+	nnoremap <silent> ,d :Ack <c-r><c-w><CR>
+endif
 
+" CSCOPE config
+" ====================================
+if has("cscope")
+    set csprg=/usr/bin/cscope
+    set csto=0
+    set cst
+    set nocsverb
+    " add any database in current directory
+    if filereadable("cscope.out")
+        cs add cscope.out
+    " else add database pointed to by environment
+    elseif $CSCOPE_DB != ""
+        cs add $CSCOPE_DB
+    endif
+    set csverb
+
+    "   's'   symbol: find all references to the token under cursor
+    "   'g'   global: find global definition(s) of the token under cursor
+    "   'c'   calls:  find all calls to the function name under cursor
+    "   't'   text:   find all instances of the text under cursor
+    "   'e'   egrep:  egrep search for the word under cursor
+    "   'f'   file:   open the filename under cursor
+    "   'i'   includes: find files that include the filename under cursor
+    "   'd'   called: find functions that function under cursor calls
+    nmap <C-\>s :cs find s <C-R>=expand("<cword>")<CR><CR>
+    nmap <C-\>g :cs find g <C-R>=expand("<cword>")<CR><CR>
+    nmap <C-\>c :cs find c <C-R>=expand("<cword>")<CR><CR>
+    nmap <C-\>t :cs find t <C-R>=expand("<cword>")<CR><CR>
+    nmap <C-\>e :cs find e <C-R>=expand("<cword>")<CR><CR>
+    nmap <C-\>f :cs find f <C-R>=expand("<cfile>")<CR><CR>
+    nmap <C-\>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
+    nmap <C-\>d :cs find d <C-R>=expand("<cword>")<CR><CR>
+endif
 
 " show line and column markers
 " =============================
